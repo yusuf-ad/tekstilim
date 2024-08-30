@@ -25,7 +25,7 @@ function Hero() {
           </p>
 
           <Button className="flex items-center gap-4 bg-white-500 font-medium">
-            <p className="text-dark-500">Şimdi Alışveriş Yap</p>
+            <p className="text-dark-500 ">Şimdi Alışveriş Yap</p>
             <i className="fa-solid fa-arrow-right text-dark-500"></i>
           </Button>
         </div>
