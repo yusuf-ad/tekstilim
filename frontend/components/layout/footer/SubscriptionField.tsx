@@ -1,3 +1,5 @@
+import { Mail, MoveRight } from "lucide-react";
+
 function SubscriptionField() {
   return (
     <>
@@ -10,13 +12,21 @@ function SubscriptionField() {
 
       <div className="relative">
         <input
+          id="email"
           placeholder="Email"
           type="text"
-          className="py-4 px-4 pl-14 border rounded-xl text-primary-100 placeholder:text-primary-100 border-primary-100 text-sm w-full bg-transparent"
+          className="py-4 px-4 pl-14 border rounded-xl text-primary-20 placeholder:text-primary-20 border-primary-100 text-sm w-full bg-transparent"
         />
-        <span className="left-4 top-[10px] absolute text-2xl text-primary-100 mr-4">
-          <i className="fa-regular fa-envelope"></i>
-        </span>
+        <label
+          htmlFor="email"
+          className="py-4 px-2 pl-4 rounded-l-xl left-0 absolute text-2xl text-primary-20 mr-4"
+        >
+          <Mail />
+        </label>
+
+        <button className="absolute right-0 p-4 text-primary-20 rounded-r-xl">
+          <MoveRight />
+        </button>
       </div>
     </>
   );
