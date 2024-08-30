@@ -1,4 +1,5 @@
 import Button from "@/components/Button";
+import { MoveRight } from "lucide-react";
 
 function CountdownItem({ value, label }: { value: string; label: string }) {
   return (
@@ -31,7 +32,7 @@ function DealsOfMonth() {
 
           <Button className="flex items-center gap-4 font-medium">
             <p>Ürünleri incele</p>
-            <i className="fa-solid fa-arrow-right mt-1"></i>
+            <MoveRight absoluteStrokeWidth />
           </Button>
         </div>
       </div>
