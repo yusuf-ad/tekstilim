@@ -16,13 +16,13 @@ function Header() {
 
       <div className="flex items-center gap-8">
         <div className="hidden gap-8 lg:flex">
-          <button className="text-2xl text-primary-400 hover:text-primary-900">
+          <button className="text-xl text-primary-400 hover:text-primary-900">
             <FaMagnifyingGlass />
           </button>
-          <button className="text-2xl text-primary-400 hover:text-primary-900">
+          <button className="text-xl text-primary-400 hover:text-primary-900">
             <FaRegHeart />
           </button>
-          <button className="text-2xl text-primary-400 hover:text-primary-900">
+          <button className="text-xl text-primary-400 hover:text-primary-900">
             <FaShoppingBag />
           </button>
         </div>
