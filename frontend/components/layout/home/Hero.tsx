@@ -4,7 +4,9 @@ import { MoveRight } from "lucide-react";
 function Hero() {
   return (
     <section className="relative mb-8 flex min-h-[60vh] items-center bg-[url('/assets/hero-img.webp')] bg-cover bg-center">
+      {/* overlay */}
       <div className="absolute inset-0 bg-black opacity-65"></div>
+      {/* content */}
       <div className="item custom-container relative px-8">
         <div className="max-w-2xl p-8 text-white-500">
           <h3 className="mb-6 text-3xl font-semibold text-white-500">

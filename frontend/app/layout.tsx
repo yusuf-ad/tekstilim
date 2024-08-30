@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html className={jost.className} lang="en">
-      <body className="flex min-h-screen flex-col  selection:bg-tertiary-100 selection:text-dark-500">
+      <body className="flex min-h-screen flex-col bg-white-500  selection:bg-tertiary-100 selection:text-dark-500">
         <main className="flex-1">{children}</main>
 
         <Footer />
