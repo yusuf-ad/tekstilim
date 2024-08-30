@@ -4,6 +4,7 @@ import DealsOfMonth from "@/components/layout/home/DealsOfMonth";
 import Hero from "@/components/layout/home/Hero";
 import HomeCategories from "@/components/layout/home/HomeCategories";
 import InstagramStories from "@/components/layout/home/InstagramStories";
+import SiteBenefits from "@/components/SiteBenefits";
 
 function Home() {
   return (
@@ -19,6 +20,8 @@ function Home() {
       <CustomerTestimonials />
 
       <InstagramStories />
+
+      <SiteBenefits />
     </>
   );
 }
