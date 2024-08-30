@@ -1,5 +1,7 @@
 import Button from "@/components/Button";
 import Navbar from "./Navbar";
+import { FaMagnifyingGlass, FaRegHeart } from "react-icons/fa6";
+import { FaShoppingBag } from "react-icons/fa";
 
 function Header() {
   return (
@@ -15,13 +17,13 @@ function Header() {
       <div className="flex items-center gap-8">
         <div className="hidden gap-8 lg:flex">
           <button className="text-2xl text-primary-400 hover:text-primary-900">
-            <i className="fa-solid fa-magnifying-glass"></i>
+            <FaMagnifyingGlass />
           </button>
           <button className="text-2xl text-primary-400 hover:text-primary-900">
-            <i className="fa-regular fa-heart"></i>
+            <FaRegHeart />
           </button>
           <button className="text-2xl text-primary-400 hover:text-primary-900">
-            <i className="fa-solid fa-bag-shopping"></i>
+            <FaShoppingBag />
           </button>
         </div>
 
