@@ -52,12 +52,11 @@ function HomeCategories() {
 
       <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
         {categoriesList.map((category, index) => (
-          <div className={`${index >= 2 ? "hidden lg:block" : ""} `}>
-            <CategoryCard
-              key={category.title}
-              title={category.title}
-              image={category.image}
-            />
+          <div
+            key={category.title}
+            className={`${index >= 2 ? "hidden lg:block" : ""} `}
+          >
+            <CategoryCard title={category.title} image={category.image} />
           </div>
         ))}
       </div>

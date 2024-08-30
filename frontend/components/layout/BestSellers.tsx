@@ -69,8 +69,11 @@ function BestSellers() {
 
       <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
         {bestProducts.map((product: Product, index: number) => (
-          <div className={`${index >= 4 ? "hidden lg:block" : ""}`}>
-            <ProductCard key={product.id} product={product} />
+          <div
+            key={product.id}
+            className={`${index >= 4 ? "hidden lg:block" : ""}`}
+          >
+            <ProductCard product={product} />
           </div>
         ))}
       </div>
