@@ -11,7 +11,7 @@ const categoriesList = [
 
 function CategoryCard({ title, image }: { title: string; image: string }) {
   return (
-    <div className="relative col-span-1 mb-8 aspect-[9/11] overflow-hidden bg-gray-200 hover:border-tertiary-600 border-2 transition-colors duration-100 cursor-pointer group ">
+    <div className="relative col-span-1 mb-8 aspect-[9/11] overflow-hidden bg-gray-200  hover:border-tertiary-600 border transition-colors duration-100 cursor-pointer group ">
       {/* category name */}
       {/* <div className="absolute right-0 top-4 z-10">
         <p className="text-7xl font-bold text-dark-80/50">
@@ -20,12 +20,8 @@ function CategoryCard({ title, image }: { title: string; image: string }) {
         </div> */}
 
       {/* image */}
-      <div className="h-full w-full ">
-        <img
-          className="relative h-full w-full object-cover"
-          src={image}
-          alt="man"
-        />
+      <div className="relative h-full w-full ">
+        <img className="h-full w-full object-cover" src={image} alt="man" />
       </div>
 
       <Label title={title} />
