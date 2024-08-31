@@ -25,23 +25,25 @@ const benefits = [
 
 function SiteBenefits() {
   return (
-    <div className="custom-container mb-12 px-8 py-12">
+    <section className="custom-container mb-12 px-8 py-12">
       <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
         {benefits.map((benefit) => (
           <div key={benefit.title}>
-            <p className="mb-5 text-4xl text-primary-500">{benefit.icon}</p>
+            <p className="mb-5 text-3xl md:text-4xl text-primary-500">
+              {benefit.icon}
+            </p>
 
-            <h4 className="mb-1 text-xl font-bold text-primary-900">
+            <h4 className="mb-1 text-lg md:text-xl font-bold text-primary-900">
               {benefit.title}
             </h4>
 
-            <p className="font-medium text-primary-600">
+            <p className="font-medium md:text-base text-sm text-primary-600">
               {benefit.description}
             </p>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
