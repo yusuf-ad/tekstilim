@@ -70,7 +70,7 @@ export default function HomeCategories() {
         setApi={setApi}
       >
         <CarouselContent>
-          {categoriesList.map((category, index) => (
+          {[...categoriesList, ...categoriesList].map((category, index) => (
             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4">
               <CategoryCard title={category.title} image={category.image} />
             </CarouselItem>

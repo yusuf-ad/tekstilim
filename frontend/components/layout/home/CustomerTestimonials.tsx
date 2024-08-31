@@ -1,5 +1,14 @@
+"use client";
+
 import SliderButton from "@/components/SliderButton";
+import {
+  Carousel,
+  type CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import { ArrowLeft, ArrowRight, Star } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
 
 type Testimonial = {
   id: number;
@@ -13,7 +22,7 @@ type Testimonial = {
 
 function TestimonialItem({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div className="flex flex-col justify-between gap-2 rounded-lg bg-white-500 px-4 py-6 shadow-lg">
+    <div className="flex flex-col justify-between h-full gap-2 rounded-lg bg-white-500 px-4 py-6 shadow-lg">
       <div>
         <div className="mb-3 flex gap-[2px]">
           {Array.from({ length: 5 }, (_, index) => (
@@ -81,6 +90,30 @@ const testimonials = [
 ];
 
 function CustomerTestimonials() {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  const scrollPrev = useCallback(() => api && api.scrollPrev(), [api]);
+  const scrollNext = useCallback(() => api && api.scrollNext(), [api]);
+
+  const onSelect = useCallback(() => {
+    if (!api) return;
+    setCurrent(api.selectedScrollSnap());
+    setCount(api.scrollSnapList().length);
+  }, [api]);
+
+  useEffect(() => {
+    if (!api) return;
+    onSelect();
+    api.on("select", onSelect);
+    api.on("reInit", onSelect);
+    return () => {
+      api.off("select", onSelect);
+      api.off("reInit", onSelect);
+    };
+  }, [api, onSelect]);
+
   return (
     <div className="my-16 bg-gray-5">
       <div className="custom-container px-8 py-16">
@@ -90,26 +123,38 @@ function CustomerTestimonials() {
           </h2>
 
           <div className="flex gap-4">
-            <SliderButton icon={<ArrowLeft size={20} />} />
-            <SliderButton icon={<ArrowRight size={20} />} active={true} />
+            <SliderButton
+              onClick={scrollPrev}
+              disabled={current === 0}
+              icon={<ArrowLeft size={20} />}
+            />
+            <SliderButton
+              onClick={scrollNext}
+              disabled={current === count - 1}
+              icon={<ArrowRight size={20} />}
+              active={true}
+            />
           </div>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={testimonial.id}
-              className={`
-                flex 
-                ${index === 0 ? "" : "hidden"} 
-                ${index === 1 ? "sm:flex" : ""} 
-                ${index === 2 ? "lg:flex" : ""}
-              `}
-            >
-              <TestimonialItem testimonial={testimonial} />
-            </div>
-          ))}
-        </div>
+        <Carousel
+          opts={{
+            align: "start",
+          }}
+          className="w-full"
+          setApi={setApi}
+        >
+          <CarouselContent>
+            {testimonials.map((testimonial, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 ">
+                <TestimonialItem
+                  testimonial={testimonial}
+                  key={testimonial.customer.name}
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </div>
     </div>
   );
