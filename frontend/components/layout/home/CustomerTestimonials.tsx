@@ -84,7 +84,7 @@ function CustomerTestimonials() {
   return (
     <div className="my-16 bg-gray-5">
       <div className="custom-container px-8 py-16">
-        <div className="mb-12 flex items-center justify-between">
+        <div className="mb-8 sm:mb-12 flex items-center justify-between">
           <h2 className="text-lg font-medium sm:text-3xl">
             Popüler Kategoriler
           </h2>

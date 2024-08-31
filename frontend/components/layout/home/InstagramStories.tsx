@@ -46,8 +46,8 @@ function InstagramStories() {
               alt="deals of the month image"
             />
 
-            <div className="flex items-center justify-center h-14 w-14 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white-500">
-              <span className="text-3xl group-hover:scale-105 transition-transform duration-300">
+            <div className="opacity-0 pointer-events-none flex group-hover:opacity-100 transition-all  duration-200 items-center justify-center h-14 w-14 rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white-500">
+              <span className="text-3xl">
                 <FaInstagram />
               </span>
             </div>

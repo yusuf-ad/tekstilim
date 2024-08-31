@@ -14,7 +14,7 @@ function CountdownItem({ value, label }: { value: string; label: string }) {
 
 function DealsOfMonth() {
   return (
-    <section className="custom-container mb-16 flex max-h-[512px] gap-6 px-8">
+    <section className="custom-container my-20 flex max-h-[512px] gap-6 px-8">
       <div className="w-full flex-1">
         <div className="flex h-full flex-col items-center sm:items-start justify-center">
           <h2 className="mb-6 text-4xl md:text-5xl font-medium text-dark-500 text-center sm:text-start">

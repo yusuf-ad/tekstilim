@@ -62,12 +62,12 @@ const bestProducts = [
 
 function BestSellers() {
   return (
-    <section className="custom-container mb-12 px-8 py-12">
-      <h2 className="mb-12 text-center text-lg font-medium sm:text-3xl">
+    <section className="custom-container  px-8 py-12">
+      <h2 className="mb-8 sm:mb-12 text-center text-lg font-medium sm:text-3xl">
         En Çok Satanlar
       </h2>
 
-      <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-4 gap-y-8 md:gap-y-12 md:gap-8 lg:grid-cols-4">
         {bestProducts.map((product: Product, index: number) => (
           <div
             key={product.id}
