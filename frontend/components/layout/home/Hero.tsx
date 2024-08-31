@@ -3,7 +3,7 @@ import { MoveRight } from "lucide-react";
 
 function Hero() {
   return (
-    <section className="relative mb-8 flex h-[calc(100vh-64px)] md:h-auto md:min-h-[60vh] items-center bg-[url('/assets/hero-img.webp')] bg-cover bg-center">
+    <section className="relative mb-10 flex h-[calc(100vh-64px)] md:h-auto md:min-h-[70vh] items-center bg-[url('/assets/hero-img.webp')] bg-cover bg-center">
       {/* overlay */}
       <div className="absolute inset-0 bg-black opacity-65"></div>
       {/* content */}
