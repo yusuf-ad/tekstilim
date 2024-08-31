@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useCallback, useState, useEffect } from "react";
-import Label from "@/components/Label";
+import React, { useCallback, useState } from "react";
 import SliderButton from "@/components/SliderButton";
 import {
   Carousel,
@@ -10,6 +9,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import CategoryCard from "@/components/CategoryCard";
 
 const categoriesList = [
   { title: "Günlük Giyim", image: "./assets/hero-img.webp" },
@@ -18,42 +18,30 @@ const categoriesList = [
   { title: "Çocuk Giyimi", image: "./assets/man.png" },
 ];
 
-function CategoryCard({ title, image }: { title: string; image: string }) {
-  return (
-    <div className="relative col-span-1 mb-8 aspect-[9/11] overflow-hidden bg-gray-200 hover:border-tertiary-600 border transition-colors duration-100 cursor-pointer group">
-      <div className="relative h-full w-full">
-        <img className="h-full w-full object-cover" src={image} alt={title} />
-      </div>
-      <Label title={title} />
-    </div>
-  );
-}
-
-function HomeCategories() {
+export default function HomeCategories() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    if (!api) {
-      return;
-    }
+  const scrollPrev = useCallback(() => api && api.scrollPrev(), [api]);
+  const scrollNext = useCallback(() => api && api.scrollNext(), [api]);
 
+  const onSelect = useCallback(() => {
+    if (!api) return;
+    setCurrent(api.selectedScrollSnap());
     setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    });
   }, [api]);
 
-  const scrollPrev = useCallback(() => {
-    api?.scrollPrev();
-  }, [api]);
-
-  const scrollNext = useCallback(() => {
-    api?.scrollNext();
-  }, [api]);
+  React.useEffect(() => {
+    if (!api) return;
+    onSelect();
+    api.on("select", onSelect);
+    api.on("reInit", onSelect);
+    return () => {
+      api.off("select", onSelect);
+      api.off("reInit", onSelect);
+    };
+  }, [api, onSelect]);
 
   return (
     <section className="custom-container px-8 py-12">
@@ -62,24 +50,24 @@ function HomeCategories() {
 
         <div className="flex gap-2 md:gap-4">
           <SliderButton
-            onClick={scrollPrev}
             icon={<ArrowLeft size={20} />}
-            active={current !== 1}
+            onClick={scrollPrev}
+            disabled={current === 0}
           />
           <SliderButton
-            onClick={scrollNext}
             icon={<ArrowRight size={20} />}
-            active={current !== count}
+            onClick={scrollNext}
+            disabled={current === count - 1}
           />
         </div>
       </div>
 
       <Carousel
-        setApi={setApi}
         opts={{
           align: "start",
         }}
         className="w-full"
+        setApi={setApi}
       >
         <CarouselContent>
           {categoriesList.map((category, index) => (
@@ -92,5 +80,3 @@ function HomeCategories() {
     </section>
   );
 }
-
-export default HomeCategories;
