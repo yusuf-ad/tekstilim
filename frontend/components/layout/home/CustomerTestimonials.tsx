@@ -1,5 +1,5 @@
 import SliderButton from "@/components/SliderButton";
-import { ArrowLeft, ArrowRight, Star, StarIcon } from "lucide-react";
+import { ArrowLeft, ArrowRight, Star } from "lucide-react";
 
 type Testimonial = {
   id: number;
@@ -13,7 +13,7 @@ type Testimonial = {
 
 function TestimonialItem({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div className="col-span-1 flex flex-col justify-between gap-2 rounded-lg bg-white-500 px-4 py-6">
+    <div className="flex flex-col justify-between gap-2 rounded-lg bg-white-500 px-4 py-6 shadow-lg">
       <div>
         <div className="mb-3 flex gap-[2px]">
           {Array.from({ length: 5 }, (_, index) => (
@@ -32,15 +32,14 @@ function TestimonialItem({ testimonial }: { testimonial: Testimonial }) {
           <img
             src="/assets/man.png"
             className="h-full w-full object-cover"
-            alt=""
+            alt="user image"
           />
         </div>
 
         <div>
           <p className="text-lg font-semibold">{testimonial.customer.name}</p>
           <p className="font-medium text-primary-400">
-            {" "}
-            {testimonial.customer.job}{" "}
+            {testimonial.customer.job}
           </p>
         </div>
       </div>
@@ -101,10 +100,11 @@ function CustomerTestimonials() {
             <div
               key={testimonial.id}
               className={`
-            ${index === 0 ? "" : "hidden"} 
-            ${index === 1 ? "sm:block" : ""} 
-            ${index === 2 ? "lg:block" : ""}
-          `}
+                flex 
+                ${index === 0 ? "" : "hidden"} 
+                ${index === 1 ? "sm:flex" : ""} 
+                ${index === 2 ? "lg:flex" : ""}
+              `}
             >
               <TestimonialItem testimonial={testimonial} />
             </div>
