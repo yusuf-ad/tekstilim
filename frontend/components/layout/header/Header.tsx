@@ -5,10 +5,10 @@ import { FaShoppingBag } from "react-icons/fa";
 
 function Header() {
   return (
-    <header className="custom-container flex items-center justify-between px-8 py-6">
+    <header className="custom-container flex items-center justify-between px-6 py-4 md:px-8 md:py-6">
       <div>
         <a href="#">
-          <h1 className="text-4xl font-semibold">tekstilim</h1>
+          <h1 className="md:text-4xl text-2xl font-semibold">tekstilim</h1>
         </a>
       </div>
 

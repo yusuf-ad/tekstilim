@@ -15,7 +15,7 @@ function Home() {
 
       <BestSellers />
 
-      <DealsOfMonth />
+      {/* <DealsOfMonth /> */}
 
       <CustomerTestimonials />
 

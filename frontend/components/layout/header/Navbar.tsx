@@ -1,10 +1,12 @@
+import { FaChevronDown } from "react-icons/fa";
 import MegaMenu from "./MegaMenu";
+import { ReactNode } from "react";
 
 interface Navbarprops {
   id: number;
   title: string;
   link: string;
-  icon?: string;
+  icon?: ReactNode;
   submenu?: true;
 }
 
@@ -13,11 +15,11 @@ const Navbardata: Navbarprops[] = [
   {
     id: 2,
     title: "Mağaza",
-    icon: "fa-solid fa-chevron-down",
+    icon: <FaChevronDown />,
     link: "#",
     submenu: true,
   },
-  { id: 3, title: "Hikaye", link: "#" },
+  { id: 3, title: "Hikayemiz", link: "#" },
   { id: 4, title: "Blog", link: "#" },
   { id: 5, title: "Bize Ulaşın", link: "#" },
 ];
@@ -33,8 +35,11 @@ function Navbar() {
               href={data.link}
             >
               {data.title}
-              {data.icon && (
+              {/* {data.icon && (
                 <i className={`fa ml-[6px] text-sm ${data.icon}`}></i>
+              )} */}
+              {data.icon && (
+                <span className="ml-[6px] text-sm">{data.icon}</span>
               )}
             </a>
             {data.submenu && <MegaMenu />}
