@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import { MoveRight } from "lucide-react";
 import Image from "next/image";
+import ProductImg from "@/public/assets/hero-img.webp";
 
 function CountdownItem({ value, label }: { value: string; label: string }) {
   return (
@@ -37,10 +38,11 @@ function DealsOfMonth() {
           </Button>
         </div>
       </div>
+
       <div className="hidden sm:block relative aspect-square w-full flex-1 bg-gray-5">
         <Image
-          src="/assets/man.png"
-          className="h-full w-full object-cover"
+          src={ProductImg}
+          className="object-cover w-full h-full"
           fill
           alt="deals of the month image"
         />
