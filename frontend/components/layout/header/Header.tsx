@@ -27,7 +27,7 @@ function Header() {
           </button>
         </div>
 
-        <Button>Login</Button>
+        <Button>Giriş yap</Button>
       </div>
     </header>
   );
