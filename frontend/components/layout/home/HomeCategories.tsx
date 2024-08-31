@@ -13,8 +13,8 @@ export default function HomeCategories() {
   return (
     <section className="custom-container px-8 py-12">
       <CustomCarousel title="Popüler Kategoriler">
-        {categoriesList.map((category, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4">
+        {[...categoriesList, ...categoriesList].map((category, index) => (
+          <CarouselItem key={index} className=" md:basis-1/2 lg:basis-1/4">
             <CategoryCard title={category.title} image={category.image} />
           </CarouselItem>
         ))}

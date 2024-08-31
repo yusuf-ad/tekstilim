@@ -5,16 +5,18 @@ import {
   Carousel,
   type CarouselApi,
   CarouselContent,
-  CarouselItem,
 } from "@/components/ui/carousel";
+import clsx from "clsx";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { ReactNode, useCallback, useEffect, useState } from "react";
 
 function CustomCarousel({
   title,
+  centeredTitle = false,
   children,
 }: {
   title: string;
+  centeredTitle?: boolean;
   children: ReactNode;
 }) {
   const [api, setApi] = useState<CarouselApi>();
@@ -44,7 +46,13 @@ function CustomCarousel({
   return (
     <>
       <div className="mb-8 sm:mb-12 flex items-center justify-between">
-        <h2 className="text-lg font-medium sm:text-3xl">{title}</h2>
+        <h2
+          className={clsx("text-lg font-medium sm:text-3xl", {
+            "text-center flex-grow": centeredTitle,
+          })}
+        >
+          {title}
+        </h2>
         <div className="flex gap-2 md:gap-4">
           <SliderButton
             onClick={scrollPrev}

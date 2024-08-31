@@ -40,7 +40,7 @@ function CustomerTestimonials() {
     <section className="my-16 bg-gray-5">
       <div className="custom-container px-8 py-16">
         <CustomCarousel title="Müşteri Yorumları">
-          {testimonials.map((testimonial, index) => (
+          {[...testimonials, ...testimonials].map((testimonial, index) => (
             <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 ">
               <TestimonialItem
                 testimonial={testimonial}
