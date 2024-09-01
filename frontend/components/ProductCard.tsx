@@ -48,7 +48,7 @@ function ProductCard({ product }: { product: Product }) {
           <p className="mb-2 font-medium text-primary-600">{product.model}</p>
 
           <div className="flex flex-col sm:flex-row sm:items-center">
-            <p className="text-lg font-medium">₺ {product.price} </p>
+            <p className="text-lg font-medium">₺ {product.curPrice} </p>
             <p className="ml-2 font-medium text-gray-500 line-through">
               ₺ {product.oldPrice}
             </p>

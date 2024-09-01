@@ -2,8 +2,29 @@ export type Product = {
   id: number;
   title: string;
   model: string;
-  price: number;
+  curPrice: number;
   oldPrice: number;
+
+  // slug: string;
+  // featuredImage: string;
+  // numOfStock: number;
+  // description: string;
+  // longDescription: string;
+  // tags: string[];
+  // images: Image[];
+  // options: ProductOption[];
+};
+
+export type Image = {
+  id: number;
+  url: string;
+  altText: string;
+};
+
+export type ProductOption = {
+  id: string;
+  name: string;
+  values: string[];
 };
 
 export type Testimonial = {
