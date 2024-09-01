@@ -2,17 +2,15 @@ import Button from "@/components/Button";
 import { MoveRight } from "lucide-react";
 import Image from "next/image";
 import ProductImg from "@/public/assets/hero-img.webp";
-
-function CountdownItem({ value, label }: { value: string; label: string }) {
-  return (
-    <div className="flex flex-col items-center rounded-lg border-2 border-gray-20 p-3 shadow-sm">
-      <span className="text-4xl font-bold text-dark-500">{value}</span>
-      <span className="font-medium text-primary-600">{label}</span>
-    </div>
-  );
-}
+import Countdown from "@/components/Countdown";
 
 function DealsOfMonth() {
+  // Set your target date here
+  // 27 days later from now
+  const targetDate = new Date(
+    Date.now() + 1000 * 60 * 60 * 24 * 27
+  ).toISOString();
+
   return (
     <section className="custom-container my-20 flex max-h-[512px] gap-6 px-8">
       <div className="w-full flex-1">
@@ -25,12 +23,7 @@ function DealsOfMonth() {
             yenileyin. Fırsatlar sınırlı ve süreli, acele edin!
           </p>
 
-          <div className="mb-12 flex gap-3 md:gap-6 flex-wrap justify-center sm:flex-nowrap">
-            <CountdownItem value="120" label="Days" />
-            <CountdownItem value="18" label="Hours" />
-            <CountdownItem value="15" label="Mins" />
-            <CountdownItem value="10" label="Secs" />
-          </div>
+          <Countdown targetDate={targetDate} />
 
           <Button className="flex items-center gap-4 font-medium">
             <p>Ürünleri incele</p>

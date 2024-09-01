@@ -41,7 +41,10 @@ function CustomerTestimonials() {
       <div className="custom-container px-8 py-16">
         <CustomCarousel title="Müşteri Yorumları">
           {[...testimonials, ...testimonials].map((testimonial, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 ">
+            <CarouselItem
+              key={index}
+              className="md:basis-1/2 lg:basis-1/3 pb-6 select-none"
+            >
               <TestimonialItem
                 testimonial={testimonial}
                 key={testimonial.customer.name}
